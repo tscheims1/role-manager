@@ -14,5 +14,13 @@ include "core/Bootstrap.php";
 
 \RoleManager\Core\Bootstrap::getInstance()->init();
 $backend = \RoleManager\Core\MVCFactory::factory('Backend');
+$frontend = \RoleManager\Core\MVCFactory::factory('Frontend');
+
+$frontend->bindAction('checkRole','init');
+
+add_action('init',function(){
+	if(current_user_can('read_private_pages'))
+	;//exit;
+});
 
 

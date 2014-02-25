@@ -13,14 +13,23 @@ class Backend extends \RoleManager\Core\Model\BaseModel
 	 */
 	public function init()
 	{
-		add_role('geladen','geladen',array('read' => true));
-		add_role('ungeladen','ungeladen',array('read' => true));
+		
 	}
 	/**
 	 * This Method will run, when the Plugin is actived
 	 */ 
 	public function activate()
 	{
+		remove_role('geladen');
+		remove_role('ungeladen');
+		add_role('geladen','geladen',array(
+			'read' => true,
+			'read_private_pages' => true,
+			'read_private_posts' => true,));
+		add_role('ungeladen','ungeladen',array(
+			'read' => true,
+			'read_private_pages' => true,
+			'read_private_posts' => true,));
 	}
 	/**
 	 * This Method will run, when the Plugin is deactived

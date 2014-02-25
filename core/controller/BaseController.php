@@ -60,7 +60,7 @@ class BaseController
 		/*
 		 * Add a Shortcode for this Controller
 		 */
-		add_shortcode($this->name, array($this,'loadContent'));
+		//add_shortcode($this->name, array($this,'loadContent'));
 		
 		/*
 		 * Initialize the View
